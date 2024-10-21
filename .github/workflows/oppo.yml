@@ -44,7 +44,7 @@ jobs:
           export CROSS_COMPILE="aarch64-linux-gnu-"
           cd $GITHUB_WORKSPACE/workdir/source
           wget https://github.com/jisuanjiQAQ/kernel_build/releases/download/test/oppo_defconfig.txt
-          mv oppo_defconfig arch/arm64/configs/oppo_defconfig
+          mv oppo_defconfig.txt arch/arm64/configs/oppo_defconfig
           export OPPO_TARGET_DEVICE="MSM_17011"
           make O=out oppo_defconfig CC=clang
           make -j$(nproc --all) O=out CC=clang
