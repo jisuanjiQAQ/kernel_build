@@ -46,6 +46,7 @@ jobs:
           wget https://github.com/jisuanjiQAQ/kernel_build/releases/download/test/oppo_defconfig.txt
           mv oppo_defconfig.txt arch/arm64/configs/oppo_defconfig
           export OPPO_TARGET_DEVICE="MSM_17011"
+          make CC=clang HOSTCC=clang mrproper
           make O=out oppo_defconfig CC=clang
           make -j$(nproc --all) O=out CC=clang
   
