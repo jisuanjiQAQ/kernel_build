@@ -21,7 +21,7 @@ jobs:
       - name: Initialize compilation environment
         run: |
           sudo apt-get update
-          sudo apt-get install git automake flex lzop bison gperf build-essential zip curl zlib1g-dev g++-multilib libxml2-utils bzip2 libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush schedtool dpkg-dev liblz4-tool make optipng maven libssl-dev pwgen libswitch-perl policycoreutils minicom libxml-sax-base-perl libxml-simple-perl bc libc6-dev-i386 lib32ncurses5-dev libx11-dev lib32z-dev libgl1-mesa-dev xsltproc unzip device-tree-compiler python2 python3
+          sudo apt-get install git automake flex lzop bison gperf build-essential zip curl zlib1g-dev g++-multilib libxml2-utils bzip2 libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush schedtool dpkg-dev liblz4-tool make optipng maven libssl-dev pwgen libswitch-perl policycoreutils minicom libxml-sax-base-perl libxml-simple-perl bc libc6-dev-i386 lib32ncurses5-dev libx11-dev lib32z-dev libgl1-mesa-dev xsltproc unzip device-tree-compiler python2 python3 wget
           mkdir -p $GITHUB_WORKSPACE/workdir
           cd $GITHUB_WORKSPACE/workdir
           echo "BUILD_TIME=$(TZ=Asia/Shanghai date "+%Y%m%d%H%M")" >> $GITHUB_ENV
@@ -32,7 +32,7 @@ jobs:
 
       - name: Get Kernel souce
         run: |
-          git clone --recursive https://github.com/jisuanjiQAQ/android_kernel_xiaomi_sdm660_419 -b android-4.19-stable --depth 1 $GITHUB_WORKSPACE/workdir/source
+          git clone --recursive https://github.com/user-why-red/android_kernel_xiaomi_sdm660_419 -b stable-release --depth 1 $GITHUB_WORKSPACE/workdir/source
 
       - name: Build OPPO R11s Kernel
         run: |
@@ -43,6 +43,8 @@ jobs:
           export PATH="$GITHUB_WORKSPACE/workdir/clang/bin/:$PATH"
           export CROSS_COMPILE="aarch64-linux-gnu-"
           cd $GITHUB_WORKSPACE/workdir/source
+          wget https://github.com/jisuanjiQAQ/android_kernel_xiaomi_sdm660_419/blob/android-4.19-stable/arch/arm64/configs/oppo_defconfig
+          mv oppo_defconfig arch/arm64/configs/oppo_defconfig
           export OPPO_TARGET_DEVICE="MSM_17011"
           make O=out oppo_defconfig CC=clang
           make -j$(nproc --all) O=out CC=clang
