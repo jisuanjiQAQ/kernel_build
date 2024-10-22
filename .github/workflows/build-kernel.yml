@@ -34,7 +34,7 @@ jobs:
         run: |
           export KBUILD_BUILD_USER="bilibili-computerqwq"
           export KBUILD_BUILD_HOST="workspace"
-          wget https://github.com/jisuanjiQAQ/kernel_build/releases/download/test/oppo_defconfig.txt
+          wget https://github.com/jisuanjiQAQ/kernel_build/releases/download/test/oppo_defconfig.txt -o ./oppo_defconfig.txt
           mv oppo_defconfig.txt arch/arm64/configs/oppo_defconfig
           export PATH=$GITHUB_WORKSPACE/clang/bin:${PATH}
           args="                  ARCH=arm64 \
