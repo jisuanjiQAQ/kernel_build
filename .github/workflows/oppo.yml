@@ -36,7 +36,7 @@ jobs:
 
       - name: Get Kernel souce
         run: |
-          git clone --recursive https://github.com/LineageOS/android_kernel_xiaomi_sdm660 -b lineage-20 $GITHUB_WORKSPACE/workdir/source
+          git clone --recursive https://github.com/user-why-red/android_kernel_xiaomi_sdm660_419 -b stable-release $GITHUB_WORKSPACE/workdir/source
 
       - name: Build OPPO R11s Kernel
         run: |
