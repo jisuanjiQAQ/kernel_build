@@ -42,7 +42,8 @@ jobs:
           args="                  ARCH=arm64 \
                                   O=../out \
                                   ${{ env.BUILD_ARGS }} \
-                                  CLANG_TRIPLE=aarch64-linux-gnu-
+                                  CLANG_TRIPLE=aarch64-linux-gnu- \
+                                  CROSS_COMPILE=$GITHUB_WORKSPACE/aarch64-linux-android-4.9/bin/aarch64-linux-android- \
                                   CROSS_COMPILE_ARM32=arm-linux-gnueabi- "
           cd kernel-source
           make ${args} ${{ env.KERNEL_CONFIG }}
