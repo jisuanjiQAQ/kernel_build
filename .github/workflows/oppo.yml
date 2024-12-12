@@ -42,14 +42,14 @@ jobs:
         run: |
           export KBUILD_BUILD_HOST=Github-Action
           export KBUILD_BUILD_USER=$(echo ${{ github.actor }} | tr A-Z a-z)
-          export ARCH="arm64"
-          export SUBARCH="arm64"
+          #export ARCH="arm64"
+          #export SUBARCH="arm64"
           export PATH="$GITHUB_WORKSPACE/workdir/clang/bin/:$PATH"
-          export CROSS_COMPILE="aarch64-linux-gnu-"
+          #export CROSS_COMPILE="aarch64-linux-gnu-"
           cd $GITHUB_WORKSPACE/workdir/source
           wget https://github.com/jisuanjiQAQ/kernel_build/releases/download/test/oppo_defconfig.txt
           mv oppo_defconfig.txt arch/arm64/configs/oppo_defconfig
-          export OPPO_TARGET_DEVICE="MSM_17011"
+          #export OPPO_TARGET_DEVICE="MSM_17011"
           make CC=clang HOSTCC=clang mrproper
           make O=out oppo_defconfig CC=clang
           make -j$(nproc --all) O=out CC=clang
