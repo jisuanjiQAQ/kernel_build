@@ -44,7 +44,7 @@ jobs:
           export KBUILD_BUILD_USER=$(echo ${{ github.actor }} | tr A-Z a-z)
           # export ARCH="arm64"
           # export SUBARCH="arm64"
-          export PATH="$GITHUB_WORKSPACE/workdir/clang/bin/:$PATH"
+          # export PATH="$GITHUB_WORKSPACE/workdir/clang/bin/:$PATH"
           # export CROSS_COMPILE="aarch64-linux-gnu-"
           cd $GITHUB_WORKSPACE/workdir/source
           wget https://github.com/jisuanjiQAQ/kernel_build/releases/download/test/oppo_defconfig.txt
