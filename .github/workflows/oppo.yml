@@ -50,7 +50,6 @@ jobs:
           export SUBARCH="arm64"
           export PATH="$GITHUB_WORKSPACE/workdir/clang/bin/:$PATH"
           export CROSS_COMPILE="aarch64-linux-gnu-"
-          make CC=clang HOSTCC=clang mrproper
           make O=out defconfig CC=clang
           make -j$(nproc --all) O=out CC=clang
   
