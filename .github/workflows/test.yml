@@ -3,11 +3,17 @@ name: 测试clang版本
 
 on:
   workflow_dispatch:
+    inputs:
+      clang_url:
+        description: '下载链接targz'  # 输入参数的描述(前需要带clang-)
+        required: true  # 参数是否必填
 
 
 jobs:
   build-kernel:
     runs-on: ubuntu-latest
+    env:
+      clang_url: ${{ inputs.clang_url }}
     steps:
       - uses: actions/checkout@v4
       - name: Setup environment
@@ -23,7 +29,7 @@ jobs:
         run: |
           git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 aarch64-linux-android-4.9
           git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9 arm-linux-androideabi-4.9
-          mkdir clang && curl https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/android11-d2-release/clang-r383902b1.tar.gz -RLO && tar -C clang/ -xf clang-*.tar.gz
+          mkdir clang && curl $clang_url -RLO && tar -C clang/ -xf clang-*.tar.gz
           
 
       - name: 开始检测
