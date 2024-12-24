@@ -36,3 +36,4 @@ jobs:
           export PATH=$GITHUB_WORKSPACE/clang/bin:${PATH}
           cd kernel-source
           clang --version
+          
