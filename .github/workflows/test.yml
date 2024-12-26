@@ -38,4 +38,5 @@ jobs:
           export KBUILD_BUILD_HOST="workspace"
           export PATH=$GITHUB_WORKSPACE/clang/bin:${PATH}
           clang --version
+          echo ＂$(CC)＂
           
