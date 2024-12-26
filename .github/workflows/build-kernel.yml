@@ -24,7 +24,7 @@ jobs:
           sudo apt install unzip zip libssl-dev  libffi-dev gnupg flex bison gperf build-essential curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev libz-dev ccache libgl1-mesa-dev libxml2-utils xsltproc 
           git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 aarch64-linux-android-4.9
           git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9 arm-linux-androideabi-4.9
-          mkdir clang && curl https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/android-msm-bonito-4.9-android12L/clang-bootstrap.tar.gz -RLO && tar -C clang/ -xf clang-*.tar.gz
+          mkdir clang && curl https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/android-msm-bonito-4.9-android12L/clang-3289846.tar.gz -RLO && tar -C clang/ -xf clang-*.tar.gz
           
       - name: Pull kernel source
         run: |
