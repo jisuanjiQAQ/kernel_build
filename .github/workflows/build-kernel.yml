@@ -23,7 +23,7 @@ jobs:
         run: |
           git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 aarch64-linux-android-4.9
           git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9 arm-linux-androideabi-4.9
-          mkdir clang && curl https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/android14-dev/clang-r487747c.tar.gz -RLO && tar -C clang/ -xf clang-*.tar.gz
+          mkdir clang && curl https://github.com/kdrag0n/proton-clang/archive/refs/tags/20210522.tar.gz -RLO && tar -C clang/ -xf *.tar.gz
 
       - name: Pull kernel source
         run: |
@@ -31,12 +31,13 @@ jobs:
 
       - name: Build kernel
         run: |
-          export KBUILD_BUILD_USER="zclkkk"
+          export KBUILD_BUILD_USER="computerqwq"
           export KBUILD_BUILD_HOST="workspace"
           export PATH=$GITHUB_WORKSPACE/clang/bin:${PATH}
           args="                  ARCH=arm64 \
                                   O=../out \
                                   ${{ env.BUILD_ARGS }} \
+                                  OPPO_TARGET_DEVICE=MSM_17011 \
                                   CLANG_TRIPLE=aarch64-linux-gnu- \
                                   CROSS_COMPILE=$GITHUB_WORKSPACE/aarch64-linux-android-4.9/bin/aarch64-linux-android- \
                                   CROSS_COMPILE_ARM32=$GITHUB_WORKSPACE/arm-linux-androideabi-4.9/bin/arm-linux-androideabi- "
