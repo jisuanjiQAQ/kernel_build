@@ -1,23 +1,20 @@
-# MikaKernel Builder
+# MikaKernel 构建器
 
-Meow!
+使用方法：
 
+1. 叉（fork）这个仓库。
 
-## Usage:
+2. 编辑 `config.env` 文件：
 
-1. Fork this repo.
-
-2. Edit `config.env` :
-
-   |        Arguments        | Note                                              |
+   | 参数 | 说明 |
    | :---------------------: | ------------------------------------------------- |
-   |    ANYKERNEL_SOURCE     | Your Anykernel3 repo                              |
-   | ANYKERNEL_SOURCE_BRANCH | Your Anykernel3 branch                            |
-   |      KERNEL_SOURCE      | Your kernel source repo                           |
-   |  KERNEL_SOURCE_BRANCH   | Your kernel source branch                         |
-   |      KERNEL_CONFIG      | Your device config                                |
-   |       BUILD_ARGS        | Your kernel compile aguments, separate with space |
+   | ANYKERNEL_SOURCE | 您的 Anykernel3 仓库 |
+   | ANYKERNEL_SOURCE_BRANCH | 您的 Anykernel3 分支 |
+   | KERNEL_SOURCE | 您的内核源码仓库 |
+   | KERNEL_SOURCE_BRANCH | 您的内核源码分支 |
+   | KERNEL_CONFIG | 您的设备配置 |
+   | BUILD_ARGS | 您的内核编译参数，用空格分隔 |
 
-3. Click `Run workflow` in `Action->Build MikaKernel`
+3. 在 "Action->构建 MikaKernel" 中点击 "运行工作流（Run workflow）"
 
-Warning: For pre-5.4 kernel, you should backport LLVM related changes for ur kernel, or just downgrade toolchains defined in build-kernel.yml to android12-dev branch and remove "LLVM=1 LLVM_IAS=1" flags in config.env
+警告：对于 5.4 之前的内核，您应该为内核回溯 LLVM 相关的更改，或者直接将 build-kernel.yml 中定义的工具链降级到 android12-dev 分支，并移除 config.env 中的 "LLVM=1 LLVM_IAS=1" 标志。
