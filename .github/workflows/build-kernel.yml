@@ -31,6 +31,7 @@ jobs:
 
       - name: Build kernel
         run: |
+          sudo apt-get install -y gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu
           export KBUILD_BUILD_USER="computerqwq"
           export KBUILD_BUILD_HOST="workspace"
           export PATH=$GITHUB_WORKSPACE/clang/bin:${PATH}
